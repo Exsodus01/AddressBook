@@ -17,6 +17,9 @@ public:
 
 	void Clear();
 
+	void LoadFile();
+
+
 protected:
 	void RemoveList();
 	UserData* Head;

@@ -45,7 +45,7 @@ void UserInterface::RemoveN()
 int UserInterface::PrintUI()
 {
 	int tmp = 0;
-	std::cout <<"0.exit" << "\n" << "1.Add" << "\n" << "2.Search" << "\n" << "3.Remove 노드" << "\n" << "4.Remove 리스트" << "\n" << "5.Print All" << std::endl;
+	std::cout <<"0.exit" << "\n" << "1.Add" << "\n" << "2.Search" << "\n" << "3.Remove 노드" << "\n" << "4.Remove 리스트" << "\n" << "5.Print All" <<"\n"<<"6.LoadFile" << std::endl;
 	std::cout << "필요한 번호를 입력하세요" << std::endl;
 
 	std::cin >> tmp;
@@ -78,6 +78,10 @@ int UserInterface::Run()
 			PrintList();
 			break;
 
+		case 6:
+			LoadF();
+			break;
+
 		default :
 			std::cout << "잘못된 값을 입력했습니다. 다시 입력하세요." << std::endl;
 
@@ -101,4 +105,9 @@ void UserInterface::RemoveL()
 
 	std::cout << "리스트가 완전히 삭제 되었습니다." << " 남은 노드 개수 : " << UserData::GetUserDataCount() << std::endl;
 
+}
+
+void UserInterface::LoadF()
+{
+	List.LoadFile();
 }

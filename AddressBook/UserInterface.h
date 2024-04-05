@@ -21,6 +21,8 @@ public:
 	void PrintList();
 
 	void RemoveL();
+
+	void LoadF();
 protected:
 	UserList& List;
 

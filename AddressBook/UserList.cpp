@@ -1,5 +1,12 @@
 #include "UserList.h"
 #include <iostream>
+
+#include <Windows.h>
+
+#include <sstream>
+
+
+
 UserList::UserList()
 	:Head(nullptr)
 {
@@ -106,6 +113,66 @@ int UserList::RemoveNode(const std::string Name)
 void UserList::Clear()
 {
 	RemoveList();
+}
+
+void UserList::LoadFile()
+{
+	//파일 열기
+	HANDLE srcFile = CreateFile(
+		L"Address_random.txt",
+		GENERIC_READ,
+		FILE_SHARE_READ,
+		nullptr,
+		OPEN_EXISTING,
+		FILE_ATTRIBUTE_NORMAL,
+		nullptr
+	);
+	if (srcFile == INVALID_HANDLE_VALUE) {
+		std::cout << "파일 오픈에 실패했습니다. ERROR NUM :" << errno << std::endl;
+		return;
+	}
+	//파일 사이즈 확인
+	LARGE_INTEGER FileSize;
+	DWORD UnitByte = 22;
+	DWORD TmpSize;
+	DWORD Total = 0;
+
+	std::string Tmp(UnitByte,'\0');
+
+	GetFileSizeEx(srcFile, &FileSize);
+	std::cout << "파일의 사이즈 : " << FileSize.QuadPart << std::endl;
+
+	while (true) {
+
+
+
+		std::string Name, Phone;
+
+		if (!ReadFile(srcFile, &Tmp[0], UnitByte, &TmpSize, nullptr)) {
+			std::cout << "파일 읽기 실패" << std::endl;
+			CloseHandle(srcFile);
+			
+			return;
+		}
+		
+		std::string check=std::string(Tmp);
+		std::istringstream iss(check);
+
+		Total += TmpSize;
+
+		iss >> Name >> Phone;
+
+		
+
+		AddNewNode(Name, Phone);
+		if (Total == FileSize.QuadPart) {
+			std::cout << "파일 처리가 끝났습니다." << std::endl;
+			break;
+		}
+
+	}
+	CloseHandle(srcFile);
+	
 }
 
 void UserList::RemoveList()
