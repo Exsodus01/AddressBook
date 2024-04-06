@@ -22,6 +22,7 @@ public:
 
 protected:
 	void RemoveList();
+	void parseData(const char* data);
 	UserData* Head;
 
 

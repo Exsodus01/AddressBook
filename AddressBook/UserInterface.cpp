@@ -97,6 +97,7 @@ int UserInterface::Run()
 void UserInterface::PrintList()
 {
 	List.PrintAll();
+	std::cout << "전체 노드의 개수 : " << UserData::GetUserDataCount() << std::endl;
 }
 
 void UserInterface::RemoveL()
