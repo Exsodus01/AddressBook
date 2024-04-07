@@ -1,11 +1,17 @@
 #include "UserData.h"
-
+#include <iostream>
 int UserData::UserDataCount = 0;
 
 UserData::UserData()
-	:UserName(""), UserPhone(""), Next(nullptr)
+	:UserName(""), UserPhone("")
 {
 	
+}
+
+UserData::UserData(std::string Name, std::string Phone)
+{
+	UserName = Name;
+	UserPhone = Phone;
 }
 
 const std::string UserData::GetN()
@@ -22,12 +28,19 @@ const std::string UserData::GetP()
 	return UserPhone;
 }
 
-const UserData* UserData::GetNext()
-{
-	return Next;
-}
+
 
 int UserData::GetUserDataCount()
 {
 	return UserDataCount;
+}
+
+std::string UserData::Getkey()
+{
+	return UserName;
+}
+
+void UserData::PrintNode()
+{
+	std::cout << UserName << " " << UserPhone << std::endl;
 }

@@ -1,19 +1,20 @@
 #pragma once
-#include "UserData.h"
+#include "DataNode.h"
+#include <vector>
 
 class UserList
 {
 public:
-	UserList();
+	UserList(DataNode* pHead);
 	~UserList();
 
 
-	UserData* FindNode(const std::string Name);
-	int AddNewNode(const std::string Name, const std::string Phone);
+	std::vector<DataNode*> FindNode(const std::string key);
+	int AddNewNode(DataNode* NewNode);
 
 	void PrintAll();
 
-	int RemoveNode(const std::string Name);
+	int RemoveNode(const std::string key);
 
 	void Clear();
 
@@ -23,7 +24,7 @@ public:
 protected:
 	void RemoveList();
 	void parseData(const char* data);
-	UserData* Head;
+	DataNode* Head;
 
 
 

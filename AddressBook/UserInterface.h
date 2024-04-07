@@ -1,4 +1,6 @@
 #pragma once
+#include <boost/asio.hpp>
+
 
 class UserList;
 class UserInterface
@@ -23,6 +25,11 @@ public:
 	void RemoveL();
 
 	void LoadF();
+
+	void ModeChange();
+
+	void Multithread(int function_Num,boost::asio::io_service& io);
+
 protected:
 	UserList& List;
 
