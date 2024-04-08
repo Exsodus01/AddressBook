@@ -1,11 +1,12 @@
-![image](https://github.com/Exsodus01/AddressBook/assets/34214553/6dbf8f2f-83ee-41d7-aa08-362bfd62370a)
+![image](https://github.com/Exsodus01/AddressBook/assets/34214553/5124e51d-2fcf-4566-ac54-83d22136a76f)
 
-이름으로 txt를 탐색.
-아직 중복 이름에 관한 처리를 하지 않음.
+DataNode를 상속받아 UserData클래스를 작성하고 UserList는 DataNode*를 다루는 방식으로 다형성을 구현
+순수 가상 클래스인 DataNode를 상속받아 UserData , MovieData , MusicData 등 다양한 자료형을 UserList를 이용해 연결리스트로 만들어서 사용 가능.
+이후 인터페이스에 Mode함수를 이용해 다른 컨테이너도 사용가능하게 업데이트 예정.
 
 
-
-![image](https://github.com/Exsodus01/AddressBook/assets/34214553/bfde8220-163e-4750-b19d-63f6a6f31323)
+![image](https://github.com/Exsodus01/AddressBook/assets/34214
+553/bfde8220-163e-4750-b19d-63f6a6f31323)
 
 노드를 추가하고 노드의 개수를 체크.
 리스트가 빈 경우와 끝에만 추가.
